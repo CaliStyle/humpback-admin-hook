@@ -1,24 +1,34 @@
 'use strict';
 
 module.exports = function (sails) {
- 	return { 
- 		defaults: {
+  return { 
+    defaults: {
       routes: {
         'get /admin': {
+          view: 'admin/index'
+        },
+        'get /admin/settings': {
+          view: 'admin/index'
+        },
+        'get /admin/users': {
           view: 'admin/index'
         }
       }
     },
 
-		configure: function () {
+    configure: function () {
       
       if (!_.isObject(sails.config.humpback)){
-      	sails.config.humpback = { };
+        sails.config.humpback = { };
       }
+      if(!_.isObject(sails.config.humpback.barnacles)){
+        sails.config.humpback.barnacles = { };
+      }
+      sails.config.humpback.barnacles.admin = true;
      
     },
-		initialize: function (next) {
-			var err, eventsToWaitFor = [];
+    initialize: function (next) {
+      var err, eventsToWaitFor = [];
       
       //wait for orm hook to be loaded
       if (sails.hooks.orm) {
@@ -44,12 +54,12 @@ module.exports = function (sails) {
 
       //apply validation hook
       sails.after(eventsToWaitFor, function() {
-    	// It's very important to trigger this callback method when you are finished
-  		// with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  		  next();
+      // It's very important to trigger this callback method when you are finished
+      // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+        next();
       });
           
-		}
+    }
   };
 };
 
