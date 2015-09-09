@@ -5,13 +5,20 @@ module.exports = function (sails) {
     defaults: {
       routes: {
         'get /admin': {
-          view: 'admin/index'
+          view: 'admin/index',
+          defaultPermissions: ['admin']
         },
-        'get /admin/settings': {
-          view: 'admin/index'
+        'get /admin/settings*': {
+          view: 'admin/index',
+          defaultPermissions: ['admin']
         },
-        'get /admin/users': {
-          view: 'admin/index'
+        'get /admin/users*': {
+          view: 'admin/index',
+          defaultPermissions: ['admin']
+        },
+        'get /admin/roles*': {
+          view: 'admin/index',
+          defaultPermissions: ['admin']
         }
       }
     },
