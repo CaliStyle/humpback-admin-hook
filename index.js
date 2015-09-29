@@ -8,6 +8,12 @@ module.exports = function (sails) {
           view: 'admin/index',
           defaultPermissions: ['admin']
         },
+        'get /admin/login': {
+          view: 'admin/index'
+        },
+        'get /admin/login/*': {
+          view: 'admin/index'
+        },
         'get /admin/settings': {
           view: 'admin/index',
           defaultPermissions: ['admin']
