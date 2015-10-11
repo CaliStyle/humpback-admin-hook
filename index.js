@@ -6,6 +6,13 @@ module.exports = function (sails) {
       routes: {
         'get /admin': {
           view: 'admin/index',
+        },
+        'get /admin/dashboard': {
+          view: 'admin/index',
+          defaultPermissions: ['admin']
+        },
+        'get /admin/dashboard/*': {
+          view: 'admin/index',
           defaultPermissions: ['admin']
         },
         'get /admin/login': {
@@ -79,8 +86,9 @@ module.exports = function (sails) {
 
       //apply validation hook
       sails.after(eventsToWaitFor, function() {
-      // It's very important to trigger this callback method when you are finished
-      // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+        sails.emit('hook:humpback:admin:loaded');
+        // It's very important to trigger this callback method when you are finished
+        // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
         next();
       });
           
