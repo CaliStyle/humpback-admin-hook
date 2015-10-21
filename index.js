@@ -9,41 +9,43 @@ module.exports = function (sails) {
         },
         'get /admin/dashboard': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/dashboard/*': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
-        },
-        'get /admin/login': {
-          view: 'admin/index'
-        },
-        'get /admin/login/*': {
-          view: 'admin/index'
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/settings': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/settings/*': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/users': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/users/*': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/roles': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         },
         'get /admin/roles/*': {
           view: 'admin/index',
-          defaultPermissions: ['admin']
+          defaultPermissions: ['admin'],
+          policy: 'AdminPolicy'
         }
       }
     },
